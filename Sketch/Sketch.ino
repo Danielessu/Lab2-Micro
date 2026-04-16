@@ -10,7 +10,7 @@ volatile bool dirEvent  = false;
 bool motorOn   = true;
 bool direction = true;
 
-// 🔥 NUEVO: control de bloqueo
+// Control de bloqueo
 bool stopLocked = false;
 bool dirLocked  = false;
 
@@ -94,7 +94,7 @@ void setMotorDirection(bool dir) {
 // ======== LOOP ========
 void loop() {
 
-  // -------- BOTÓN STOP (ANTI DOBLE CLICK) --------
+  // -------- BOTÓN STOP --------
   if (!(PIND & (1 << PD2))) {  // presionado
     if (!stopLocked && millis() - lastStop > debounce) {
       motorOn = !motorOn;
